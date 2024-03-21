@@ -4,7 +4,7 @@ def main():
     # Create an instance of the RPNCalculator class
     calculator = RPNCalculator()
 
-    # Define a test expression in Reverse Polish Notation
+    # Define a test expression in Reverse Notation
     expression = "3 4 +"
 
     # Use the calculator to evaluate the expression
