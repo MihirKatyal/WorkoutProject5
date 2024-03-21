@@ -16,3 +16,18 @@ class RPNCalculator:
         if len(self.stack) != 1:
             raise ValueError("The RPN expression is invalid")
         return self.stack.pop()
+    
+    def _perform_operation(self, operator): # Perform the operation using the last two operands on the stack
+        if len(self.stack) < 2:
+            raise ValueError("Insufficient values in the expression")
+        b, a = self.stack.pop(), self.stack.pop()
+        if operator == '+':
+            self.stack.append(a + b)
+        elif operator == '-':
+            self.stack.append(a - b)
+        elif operator == '*':
+            self.stack.append(a * b)
+        elif operator == '/':
+            if b == 0:
+                raise ZeroDivisionError("Division by zero")
+            self.stack.append(a / b)
