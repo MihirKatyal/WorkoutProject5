@@ -10,3 +10,6 @@ class TestRPNCalculator(unittest.TestCase):
 
     def test_subtraction(self):
         self.assertEqual(self.calculator.evaluate_expression("10 5 -"), -5)
+
+    def test_multiplication(self):
+        self.assertEqual(self.calculator.evaluate_expression("4 5 *"), 20)
