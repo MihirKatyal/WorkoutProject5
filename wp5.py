@@ -22,4 +22,10 @@ def main():
     except ValueError as e:
         print(f"Error evaluating RPN Expression {e}")
         sys.exit(1)
+
+    with open(output_filename, 'w') as file:
+        file.write(str(result))
+
+if __name__ == '__main__':
+    main()
     
