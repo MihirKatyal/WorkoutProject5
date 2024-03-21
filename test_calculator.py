@@ -24,3 +24,7 @@ class TestRPNCalculator(unittest.TestCase):
     def test_invalid_expression(self):
         with self.assertRaises(ValueError):
             self.calculator.evaluate_expression("3 +")
+
+    def test_invalid_operand(self):
+        with self.assertRaises(ValueError):
+            self.calculator.evaluate_expression('three 5 +')
