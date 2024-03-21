@@ -11,21 +11,24 @@ def main():
 
     try:
         with open(input_filename, 'r') as file:
-            expression = ' '.join(line.strip() for line in file)  # Combine lines and strip spaces.
+            # Combine all lines into a single string of expressions, separated by spaces
+            expressions = ' '.join(file.read().splitlines())
     except FileNotFoundError:
         print(f"Error: The file {input_filename} does not exist.")
         sys.exit(1)
 
+    # Process and write the results
     calculator = RPNCalculator()
-    try:
-        result = calculator.evaluate_expression(expression)
-    except ValueError as e:
-        print(f"Error evaluating RPN Expression {e}")
-        sys.exit(1)
+    results = []
+    for expression in expressions.split('/'):  # Assuming each expression is separated by '/'
+        try:
+            result = calculator.evaluate_expression(expression)
+            results.append(f"{expression} = {result}")
+        except Exception as e:
+            results.append(f"Error in expression '{expression}': {str(e)}")
 
     with open(output_filename, 'w') as file:
-        file.write(str(result))
+        file.write('\n'.join(results))
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-    
