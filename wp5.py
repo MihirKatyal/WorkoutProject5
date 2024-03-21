@@ -10,5 +10,8 @@ def main():
     output_filename = sys.argv[2]
 
     try:
-        with open(input_filename, 'r') as input_file:
-            expression = ''
+        with open(input_filename, 'r') as file:
+            expression = ' '.join(line.strip() for line in file)  # Combine lines and strip spaces.
+    except FileNotFoundError:
+        print(f"Error: The file {input_filename} does not exist.")
+        sys.exit(1)
