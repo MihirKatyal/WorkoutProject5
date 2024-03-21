@@ -15,3 +15,11 @@ def main():
     except FileNotFoundError:
         print(f"Error: The file {input_filename} does not exist.")
         sys.exit(1)
+
+    calculator = RPNCalculator()
+    try:
+        result = calculator.evaluate_expression(expression)
+    except ValueError as e:
+        print(f"Error evaluating RPN Expression {e}")
+        sys.exit(1)
+    
