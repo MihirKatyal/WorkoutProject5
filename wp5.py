@@ -20,7 +20,7 @@ def main():
     # Process and write the results
     calculator = RPNCalculator()
     results = []
-    for expression in expressions.split('/'):  # Assuming each expression is separated by '/'
+    for expression in expressions.split('/'):  # Assume each expression is separated by '/'
         try:
             result = calculator.evaluate_expression(expression)
             results.append(f"{expression} = {result}")
