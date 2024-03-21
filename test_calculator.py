@@ -16,3 +16,11 @@ class TestRPNCalculator(unittest.TestCase):
 
     def test_division(self):    
         self.assertEqual(self.calculator.evaluate_expression("20 5 /"), 5)
+
+    def test_zero_division(self):
+        with self.assertRaises(ZeroDivisionError):
+            self.calculator.evaluate_expression("4 0 /")
+    
+    def test_invalid_expression(self):
+        with self.assertRaises(ValueError):
+            self.calculator.evaluate_expression("3 +")
