@@ -28,3 +28,6 @@ class TestRPNCalculator(unittest.TestCase):
     def test_invalid_operand(self):
         with self.assertRaises(ValueError):
             self.calculator.evaluate_expression('three 5 +')
+
+if __name__ == '__main__':
+    unittest.main()
