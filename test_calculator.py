@@ -13,3 +13,6 @@ class TestRPNCalculator(unittest.TestCase):
 
     def test_multiplication(self):
         self.assertEqual(self.calculator.evaluate_expression("4 5 *"), 20)
+
+    def test_division(self):    
+        self.assertEqual(self.calculator.evaluate_expression("20 5 /"), 5)
